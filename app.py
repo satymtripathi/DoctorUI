@@ -55,6 +55,7 @@ def init_db():
     # Seed Admin Users if empty (For first run)
     c.execute("SELECT count(*) FROM users")
     if c.fetchone()[0] == 0:
+        c.execute("INSERT INTO users VALUES ('dr_tanmay', '1234', 'Doctor', 'Dr. Tanmay')")
         c.execute("INSERT INTO users VALUES ('dr_satyam', '1234', 'Doctor', 'Dr. Satyam')")
         c.execute("INSERT INTO users VALUES ('lab_main', '5678', 'Lab', 'Central Lab Tech')")
         conn.commit()
